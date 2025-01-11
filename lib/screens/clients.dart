@@ -21,7 +21,7 @@ class ClientsScreen extends StatefulWidget {
 }
 
 class _ClientScreenState extends State<ClientsScreen> {
-  List<ClientData> _clients = [
+  final List<ClientData> _clients = [
     const ClientData("", "", "Test", "User 1", "Invited"),
     const ClientData("", "", "Test", "User 2", "Invited"),
     const ClientData("", "", "Test", "User 3", "Invited"),

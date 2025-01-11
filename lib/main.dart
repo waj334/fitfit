@@ -3,6 +3,7 @@ import 'package:fitfit/screens/chat_client.dart';
 import 'package:fitfit/screens/chat_trainer.dart';
 import 'package:fitfit/screens/clients.dart';
 import 'package:fitfit/screens/community_feed.dart';
+import 'package:fitfit/screens/home.dart';
 import 'package:fitfit/screens/workouts_client.dart';
 import 'package:fitfit/screens/workouts_trainer.dart';
 import 'package:flutter/material.dart';
@@ -99,6 +100,7 @@ class _MainWidgetState extends State<MainWidget> {
 
   List<NavigationDestination> clientNavigationDestinations() {
     return const <NavigationDestination>[
+      NavigationDestination(icon: FaIcon(FontAwesomeIcons.house), label: "Home"),
       NavigationDestination(
           icon: FaIcon(FontAwesomeIcons.dumbbell), label: 'Workouts'),
       NavigationDestination(icon: Icon(Icons.message), label: 'Chat'),
@@ -109,6 +111,7 @@ class _MainWidgetState extends State<MainWidget> {
 
   List<Screen> clientScreens() {
     return <Screen>[
+      Screen("", GlobalKey<NavigatorState>(), const HomeScreen()),
       Screen("", GlobalKey<NavigatorState>(), const ClientWorkoutsScreen()),
       Screen("", GlobalKey<NavigatorState>(), const ClientChatScreen()),
       Screen("", GlobalKey<NavigatorState>(), const CommunityFeed()),
@@ -117,18 +120,20 @@ class _MainWidgetState extends State<MainWidget> {
 
   List<NavigationDestination> trainerNavigationDestinations() {
     return const <NavigationDestination>[
+      NavigationDestination(icon: FaIcon(FontAwesomeIcons.house), label: "Home"),
       NavigationDestination(
-          icon: FaIcon(FontAwesomeIcons.dumbbell), label: 'Workout Designer'),
+          icon: FaIcon(FontAwesomeIcons.dumbbell), label: 'Programs'),
       NavigationDestination(
           icon: FaIcon(FontAwesomeIcons.users), label: 'Clients'),
       NavigationDestination(icon: Icon(Icons.message), label: 'Chat'),
       NavigationDestination(
-          icon: Icon(Icons.rss_feed), label: 'Community Feed'),
+          icon: Icon(Icons.rss_feed), label: 'Community'),
     ];
   }
 
   List<Screen> trainerScreens() {
     return <Screen>[
+      Screen("", GlobalKey<NavigatorState>(), const HomeScreen()),
       Screen("", GlobalKey<NavigatorState>(), const TrainerWorkoutsScreen()),
       Screen("", GlobalKey<NavigatorState>(), const ClientsScreen()),
       Screen("", GlobalKey<NavigatorState>(), const TrainerChatScreen()),
